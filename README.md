@@ -1,2 +1,2 @@
 # berg
-NetArt based on the moebois &amp; jodo grahic novel "L'incal"
+NetArt inspired on the moebois &amp; jodo grahic novel "L'incal"
