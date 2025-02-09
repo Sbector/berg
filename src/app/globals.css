@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#root {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  background: #000000;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
