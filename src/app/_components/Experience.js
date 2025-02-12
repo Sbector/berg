@@ -3,7 +3,7 @@ import { Perf } from "r3f-perf";
 import { Suspense } from "react";
 
 export default function Experience() {
-    const url = "/models/Berg.glb";
+    const url = "./models/Berg.glb";
     const gltf = useGLTF(url);
     console.log(gltf);
 
