@@ -5,10 +5,12 @@ import { Canvas } from "@react-three/fiber"
 import * as THREE from 'three'
 
 import Experience from "./_components/Experience"
+import { Leva } from "leva"
 
 export default function Home() {
   return (
     <StrictMode>
+      <Leva collapsed/>
       <Canvas
         gl={{
           outputColorSpace: THREE.SRGBColorSpace
