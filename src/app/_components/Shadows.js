@@ -6,12 +6,12 @@ export default function Shadows() {
         position-y={-1.99}
         color="#316d39"
         opacity={0.7}
-        frames={100}
+        frames={10}
         temporal
     >
         <RandomizedLight
             position={[1.5, 3, 3]}
-            amount={6}
+            amount={8}
             radius={1}
             ambient={0.5}
             intensity={3}

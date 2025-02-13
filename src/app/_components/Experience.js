@@ -14,7 +14,7 @@ export default function Experience() {
             <SoftShadows size={20} samples={20} focus={0} />
             <Perf position="top-left" />
             <OrbitControls makeDefault />
-
+            
             <directionalLight
                 position={[1.5, 3, 3]}
                 intensity={2.5}
@@ -35,8 +35,8 @@ export default function Experience() {
                 <meshStandardMaterial color='greenyellow' />
             </mesh>
             <Suspense fallback={<Placeholder position-y={0.5} scale={[2, 3, 2]} />}>
-                <Shadows />
                 <Berg scale={0.5} position={[0, -2, 0]} />
+                <Shadows />
             </Suspense>
         </>
     )
