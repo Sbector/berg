@@ -1,20 +1,24 @@
-import { SoftShadows, BakeShadows, OrbitControls } from "@react-three/drei";
+import { Sky , BakeShadows, OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense } from "react";
 import Berg from "./Berg";
 import Placeholder from "./Placeholder";
 import Shadows from "./Shadows";
+import { useControls } from "leva";
 
 export default function Experience() {
-
+    
+    // const {sunPosition} = useControls('sky', {
+    //     sunPosition: { value: [1.5, 3, 3]}
+    // })
 
     return (
         <>
             {/* <BakeShadows /> */}
-            <SoftShadows size={20} samples={20} focus={0} />
+            
             <Perf position="top-left" />
             <OrbitControls makeDefault />
-            
+            <Sky sunPosition={[1.5, 3, 3]}/>
             <directionalLight
                 position={[1.5, 3, 3]}
                 intensity={2.5}
