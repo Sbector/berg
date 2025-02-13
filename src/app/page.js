@@ -10,8 +10,9 @@ import { Leva } from "leva"
 export default function Home() {
   return (
     <StrictMode>
-      <Leva collapsed/>
+      <Leva collapsed />
       <Canvas
+        shadows
         gl={{
           outputColorSpace: THREE.SRGBColorSpace
         }}
