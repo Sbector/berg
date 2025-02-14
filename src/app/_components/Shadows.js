@@ -29,8 +29,8 @@ export default function Shadows() {
                     bias={0.001}
                 />
             </AccumulativeShadows> */}
-            <SoftShadows size={20} samples={20} focus={0} />
-            <ContactShadows
+            <SoftShadows size={25} samples={20} focus={0}/>
+            {/* <ContactShadows
                 position-y={-1.99}
                 scale={5}
                 resolution={512}
@@ -38,7 +38,7 @@ export default function Shadows() {
                 color={'#171d13'}
                 opacity={0.60}
                 blur={6.5}
-            />
+            /> */}
 
         </>
     )

@@ -8,9 +8,9 @@ import { useControls } from "leva";
 
 export default function Experience() {
     
-    // const {sunPosition} = useControls('sky', {
-    //     sunPosition: { value: [1.5, 3, 3]}
-    // })
+    const {sunPosition} = useControls('sky', {
+        sunPosition: { value: [1.5, 3, 3]}
+    })
 
     return (
         <>
@@ -18,10 +18,10 @@ export default function Experience() {
             
             <Perf position="top-left" />
             <OrbitControls makeDefault />
-            <Sky sunPosition={[1.5, 3, 3]}/>
+            <Sky sunPosition={sunPosition}/>
             <directionalLight
-                position={[1.5, 3, 3]}
-                intensity={2.5}
+                position={sunPosition}
+                intensity={1.5}
                 castShadow
                 shadow-normalBias={0.04}
                 shadow-mapSize={[1024, 1024]}
@@ -32,15 +32,15 @@ export default function Experience() {
                 shadow-camera-left={-2}
                 shadow-camera-right={2}
             />
-            <ambientLight intensity={0.5} />
+            <ambientLight intensity={0.3} />
 
-            <mesh rotation-x={Math.PI * -0.5} position-y={-2} scale={10}>
+            <mesh receiveShadow rotation-x={Math.PI * -0.5} position-y={-2} scale={10}>
                 <planeGeometry />
-                <meshStandardMaterial color='greenyellow' />
+                <meshToonMaterial color={'greenYellow'}/>
             </mesh>
             <Suspense fallback={<Placeholder position-y={0.5} scale={[2, 3, 2]} />}>
                 <Berg scale={0.5} position={[0, -2, 0]} />
-                <Shadows />
+                <Shadows/>
             </Suspense>
         </>
     )
