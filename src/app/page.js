@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber"
 
 import Experience from "./_components/Experience"
 import { Leva } from "leva"
+import { Color } from "three"
 
 export default function Home() {
 
