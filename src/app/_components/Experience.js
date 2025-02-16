@@ -1,4 +1,4 @@
-import { Sky , BakeShadows, OrbitControls } from "@react-three/drei";
+import { Sparkles, Sky , BakeShadows, OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense } from "react";
 import Berg from "./Berg";
@@ -38,6 +38,12 @@ export default function Experience() {
                 <planeGeometry />
                 <meshToonMaterial color={'greenYellow'}/>
             </mesh>
+            <Sparkles
+            size={6}
+            scale={[8,4,8]}
+            speed={0.8}
+            count={20}
+            />
             <Suspense fallback={<Placeholder position-y={0.5} scale={[2, 3, 2]} />}>
                 <Berg scale={0.5} position={[0, -2, 0]} />
                 <Shadows/>
