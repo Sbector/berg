@@ -8,10 +8,21 @@ import { MeshNormalMaterial } from 'three'
 
 export default function Berg(props) {
   const { nodes, materials } = useGLTF('./models/Berg.glb')
+
+  const berg = useRef()
+
+  const eventHandler = () => {
+    berg.current.material.color.set(`hsl(${(Math.random() * 15)+15}, 60%, ${(Math.random()*10)+50}%)`)
+  }
+
   return (
     <group {...props} dispose={null}>
-      <mesh castShadow receiveShadow={false}
+      <mesh
+        ref={berg}
+        castShadow={false}
+        receiveShadow={false}
         geometry={nodes.Berg.geometry}
+        onClick={eventHandler}
       >
         <meshToonMaterial color={'#ff7e29'} />
         <Outlines thickness={0.7} />
