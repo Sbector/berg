@@ -21,6 +21,7 @@ export default function Home() {
           position: [3, 2, 8]
         }}
       >
+        <color args={ [ '#000000' ] } attach="background" />
         <Experience />
       </Canvas>
     </StrictMode>

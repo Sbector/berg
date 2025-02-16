@@ -1,10 +1,9 @@
-import { shaderMaterial, Sparkles, Sky, BakeShadows, OrbitControls } from "@react-three/drei";
+import { shaderMaterial, Sparkles, OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense, useRef } from "react";
 import { useFrame, extend } from '@react-three/fiber'
 import Berg from "./Berg";
 import Placeholder from "./Placeholder";
-import Shadows from "./Shadows";
 import { useControls } from "leva";
 import portalVertexShader from './shaders/portal/vertex.glsl'
 import portalFragmentShader from './shaders/portal/fragment.glsl'
@@ -24,10 +23,6 @@ extend({ PortalMaterial })
 
 export default function Experience() {
 
-    // const { sunPosition } = useControls('sky', {
-    //     sunPosition: { value: [1.5, 3, 3] }
-    // })
-
     const portalMaterial = useRef()
     useFrame((state, delta) => {
         portalMaterial.current.uTime += delta * 2
@@ -35,8 +30,6 @@ export default function Experience() {
 
     return (
         <>
-            {/* <BakeShadows /> */}
-
             <Perf position="top-left" />
             <OrbitControls
                 makeDefault
@@ -47,19 +40,10 @@ export default function Experience() {
                 maxPolarAngle={1.7}
                 rotateSpeed={0.7}
             />
-            {/* <Sky sunPosition={sunPosition} /> */}
+
             <directionalLight
                 position={[0, 2, 0]}
                 intensity={1}
-            // castShadow
-            // shadow-normalBias={0.04}
-            // shadow-mapSize={[1024, 1024]}
-            // shadow-camera-near={1}
-            // shadow-camera-far={9}
-            // shadow-camera-top={2}
-            // shadow-camera-bottom={-2.5}
-            // shadow-camera-left={-2}
-            // shadow-camera-right={2}
             />
             <directionalLight
                 position={[0, -1, 0]}
@@ -79,9 +63,6 @@ export default function Experience() {
             <mesh rotation-x={Math.PI * -0.5} position-y={-2} scale={10}>
                 <planeGeometry />
                 <portalMaterial ref={portalMaterial}/>
-
-
-                {/* <meshToonMaterial color={'greenYellow'}/> */}
             </mesh>
 
 
@@ -92,9 +73,9 @@ export default function Experience() {
                 count={40}
                 position-y={2}
             />
+
             <Suspense fallback={<Placeholder position-y={0.5} scale={[2, 3, 2]} />}>
                 <Berg scale={0.5} position={[0, 0, 0]} />
-                {/* <Shadows /> */}
             </Suspense>
         </>
     )

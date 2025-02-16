@@ -12,7 +12,6 @@ export default function Berg(props) {
     <group {...props} dispose={null}>
       <mesh castShadow receiveShadow={false}
         geometry={nodes.Berg.geometry}
-      // material={materials.Berg} 
       >
         <meshToonMaterial color={'#ff7e29'} />
         <Outlines thickness={0.7} />
@@ -24,7 +23,6 @@ export default function Berg(props) {
         />
         <mesh
           geometry={nodes.Sphere001_1.geometry}
-        // material={materials.ojo}
         >
           <meshBasicMaterial color={'#ffffaa'} />
         </mesh>
