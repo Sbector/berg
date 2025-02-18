@@ -13,6 +13,7 @@ export default function Home() {
     <StrictMode>
       <Leva collapsed />
       <Canvas
+        flat
         shadows
         camera={{
           fov: 75,
@@ -21,7 +22,7 @@ export default function Home() {
           position: [3, 2, 8]
         }}
       >
-        <color args={ [ '#000000' ] } attach="background" />
+        <color args={['#000000']} attach="background" />
         <Experience />
       </Canvas>
     </StrictMode>

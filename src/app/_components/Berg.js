@@ -11,10 +11,6 @@ export default function Berg(props) {
 
   const berg = useRef()
 
-  const eventHandler = () => {
-    berg.current.material.color.set(`hsl(${(Math.random() * 15)+15}, 60%, ${(Math.random()*10)+50}%)`)
-  }
-
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -22,7 +18,7 @@ export default function Berg(props) {
         castShadow={false}
         receiveShadow={false}
         geometry={nodes.Berg.geometry}
-        onClick={eventHandler}
+        
       >
         <meshToonMaterial color={'#ff7e29'} />
         <Outlines thickness={0.7} />

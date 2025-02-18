@@ -1,6 +1,6 @@
 import { shaderMaterial, Sparkles, OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import { Suspense, useRef } from "react";
+import { Suspense, useState, useRef } from "react";
 import { useFrame, extend } from '@react-three/fiber'
 import Berg from "./Berg";
 import Placeholder from "./Placeholder";
@@ -24,9 +24,19 @@ extend({ PortalMaterial })
 export default function Experience() {
 
     const portalMaterial = useRef()
+
+    const [animation, setAnimation] = useState(true)
+
+    const eventHandler = () => {
+        setAnimation(!animation)
+    }
+
     useFrame((state, delta) => {
-        portalMaterial.current.uTime += delta * 2
+        if (animation) {
+            portalMaterial.current.uTime += delta * 2
+        }
     })
+
 
     return (
         <>
@@ -43,26 +53,31 @@ export default function Experience() {
 
             <directionalLight
                 position={[0, 2, 0]}
-                intensity={1}
+                intensity={2}
+                color={'#0000ff'}
             />
             <directionalLight
-                position={[0, -1, 0]}
-                intensity={1}
+                position={[0, -2, 0]}
+                intensity={2}
                 color={'#ff0000'}
             />
-            <directionalLight
-                position={[0, 2, -1]}
-                intensity={8}
-                color={'#0000aa'}
+            <pointLight
+                position={[0, 8, 0.25]}
+                intensity={250}
+                color={'#0000ff'}
             />
             <ambientLight
-                intensity={1}
-                color={'#ffeeee'}
+                intensity={1.5}
             />
+
+            {/* <mesh position={[0, 4.3, 0.25]} scale={[0.17, 0.25, 0.17]}>
+                <sphereGeometry />
+                <meshToonMaterial color={'#0d0d0d'} />
+            </mesh> */}
 
             <mesh rotation-x={Math.PI * -0.5} position-y={-2} scale={10}>
                 <planeGeometry />
-                <portalMaterial ref={portalMaterial}/>
+                <portalMaterial ref={portalMaterial} />
             </mesh>
 
 
@@ -75,7 +90,7 @@ export default function Experience() {
             />
 
             <Suspense fallback={<Placeholder position-y={0.5} scale={[2, 3, 2]} />}>
-                <Berg scale={0.5} position={[0, 0, 0]} />
+                <Berg scale={0.5} position={[0, 0, 0]} onClick={eventHandler} />
             </Suspense>
         </>
     )
