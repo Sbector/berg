@@ -40,7 +40,7 @@ export default function Experience() {
 
     return (
         <>
-            <Perf position="top-left" />
+            {/* <Perf position="top-left" /> */}
             <OrbitControls
                 makeDefault
                 target={[0, 2, 0]}
